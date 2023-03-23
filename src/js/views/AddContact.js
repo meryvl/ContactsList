@@ -52,20 +52,20 @@ inputValue: valueName
 return(
 <>
 <Navbar />
+<div className="formStyle">
 <h1 >Add a new contact </h1>
 
 {inputElement.map((item , index)=>{
 return(
 <>
 
-<form>
-<div className="col-3" key={index.id}>
+<div  key={index.id} className="labelInput">
 <lebel>{item.lebel}</lebel>
+<div>
 <input type="text" value={item.inputValue} onChange={item.onChange}></input>
 </div>
-</form>
 
-
+</div>
 </>
 )
 })
@@ -76,6 +76,8 @@ return(
 <div>
     <button onClick={()=>update(valueName, valueEmail,valueAdreess,valuePhone)}>sabe</button>
 </div>
+</div>
+
 </>
 
 

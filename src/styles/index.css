@@ -4,18 +4,31 @@
 a{
    text-decoration: none;
 }
+
 body{
-    margin: 5%;
+    background-color: black;
+    color: white;
+    margin: 0 7% 0 7%;
+}
+nav{
+   border-radius: 5px;
+    background: rgb(34,193,195);
+    background: linear-gradient(135deg, rgba(34,193,195,1) 23%, rgba(253,247,45,1) 100%); 
 }
 h1{
     width: 100%;
    
 }
+.btn-add{
+    width: 100%;
+    text-align: right;
+
+}
 
 button{
     border: none;
-    width: 100%;
-    padding: 0 10px 0 10px;
+    width: 50%;
+    padding: 5px;
     border-radius: 5px;
     background-color: rgb(153, 238, 238);
 }
@@ -33,4 +46,17 @@ border: solid 1px;
     border-radius: 60%;
     margin: 5px;
     
+}
+.formStyle{
+    margin: 10px;
+    text-align: center;
+}
+input{
+    width: 45%;
+}
+.iconDelete{
+    
+    text-align: right;
+
+
 }
