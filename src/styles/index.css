@@ -1,3 +1,36 @@
 /* 
     General Styles
 */
+a{
+   text-decoration: none;
+}
+body{
+    margin: 5%;
+}
+h1{
+    width: 100%;
+   
+}
+
+button{
+    border: none;
+    width: 100%;
+    padding: 0 10px 0 10px;
+    border-radius: 5px;
+    background-color: rgb(153, 238, 238);
+}
+button:hover{
+border: solid 1px;
+
+}
+.contactStyle{
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 5px;
+}
+.fotoContact{
+    width: 150px;
+    border-radius: 60%;
+    margin: 5px;
+    
+}
