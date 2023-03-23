@@ -20,14 +20,14 @@ h1{
    
 }
 .btn-add{
-    width: 100%;
-    text-align: right;
+    width: 50%;
+   text-align: right;
 
 }
 
 button{
     border: none;
-    width: 50%;
+    width: 30%;
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(153, 238, 238);
@@ -37,6 +37,8 @@ border: solid 1px;
 
 }
 .contactStyle{
+
+    width: 60%;
     border: solid 1px gray;
     border-radius: 5px;
     margin: 5px;
@@ -55,8 +57,11 @@ input{
     width: 45%;
 }
 .iconDelete{
-    
     text-align: right;
 
-
+}
+.bodyContacts{
+ margin-left: 5%;
+ width: 100%;
+ 
 }

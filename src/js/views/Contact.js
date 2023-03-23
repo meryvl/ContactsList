@@ -18,6 +18,7 @@ const Contact =()=>{
 return(
     <div>
 <Navbar/>
+<div className="bodyContacts">
 <div className="d-flex">
 <h1 className="w-25">Contactos</h1>
 <div className="ml-auto btn-add">
@@ -31,7 +32,7 @@ return(
             ) : (
     listContacts.map((item, index)=>{
 return(
-   <div className="m-3"> 
+   <div className="m-3 "> 
 <div key={index.id} className="contactStyle row">
 <img className="fotoContact  col-4" src="https://images.pexels.com/photos/2625122/pexels-photo-2625122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
 <div className="col-5 mt-3">
@@ -40,14 +41,14 @@ return(
 <p>Adreess : {item.address}</p>
 <p>Phone : {item.phone}</p>
 </div>
-<span className="me-3 col-4 iconDelete"  onClick={()=> handleDeleteContact(item.full_name)}><i className="fa-solid fa-xmark"></i></span>
+<span className="me-3 col-3 iconDelete"  onClick={()=> handleDeleteContact(item.full_name)}><i className="fa-solid fa-xmark"></i></span>
 </div>
 </div>
 )}))} 
 
 
 
-
+</div>
 </div>
 )
 }
