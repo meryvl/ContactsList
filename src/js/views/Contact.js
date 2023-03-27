@@ -34,7 +34,7 @@ return(
 return(
    <div className="m-3 "> 
 <div key={index.id} className="contactStyle row">
-<img className="fotoContact  col-4" src="https://images.pexels.com/photos/2625122/pexels-photo-2625122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+<img className="fotoContact  col-4" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/09/02/16621364623205.jpg"/>
 <div className="col-5 mt-3">
 <p>Nombre : {item.full_name}</p>
 <p>Email : {item.email}</p>

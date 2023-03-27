@@ -26,40 +26,36 @@ const AppContextProvider = ({ children }) => {
     useEffect(getAgenda,[])
 
 
-    const putContact=(newContact)=>{
+    const postContact=(newContact)=>{
       console.log(newContact)
       return(
-      fetch("https://assets.breatheco.de/apis/fake/contact/{contact_id}",{
-              method:'PUT',
+      fetch("https://assets.breatheco.de/apis/fake/contact/",{
+              method:'POST',
               body:JSON.stringify(newContact),
               headers:{
                   "Content-Type": "application/json",
               }
           })
-      .then(() =>{
-        getAgenda()
-              
-      })
       .catch(eror =>console.log(eror))
       )}
   
 
 
       const update = () => {
-        if(valueName !== ""){
+        if(valueName !== "" && valueAdreess !=="" && valueEmail !=="" && valuePhone !==""){
           const newContact = {
             full_name: valueName ,
             email: valueEmail,
-            agenda_slug: "my_super_agenda",
             address: valueAdreess ,
             phone: valuePhone
           }
           
             setValueName("");
-      
+            setValueAdreess("")
+            setValueEmail("")
+            setValuePhone("")
         setListContacts([...listContacts, newContact])
-     
-        }  
+        }
               
     };
 
