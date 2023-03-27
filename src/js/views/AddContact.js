@@ -71,8 +71,7 @@ return(
 })
 
 }
-{valueName}
-<a href="./ListContact.js">or get back</a>
+
 <div>
     <button onClick={()=>update(valueName, valueEmail,valueAdreess,valuePhone)}>sabe</button>
 </div>
