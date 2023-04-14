@@ -1,37 +1,39 @@
 import React from "react";
-import { useState } from "react";
-import { useAppContext } from "../store/AppContext.js";
+
+import { useEffect } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
+
 import { GET_ContactList } from "../store/services.js";
-import { Navbar } from "../component/navbar.js";
-const AddContact=()=>{
-const {store , actions} = useAppContext();
-const navigate = useNavigate();
+
+import useAppContext from "../store/AppContext.js";
+
+import ModalUpdate from "./ModalUpdate.jsx";
+
+
+
+const FormAddContactUpdate = () => {
+  
+  const {store, actions} = useAppContext();
+
+  const navigate = useNavigate();
   
   const params = useParams();
 
-useEffect(() => {
+
+  useEffect(() => {
     GET_ContactList(params.theid)
       .then(data => {
-        actions.setValueName(data.full_name)
-        actions.setValueEmail(data.email)
-        actions.setValuePhone(data.phone)
-        actions.setValueAddress(data.address)
+        actions.setName(data.full_name)
+        actions.setEmail(data.email)
+        actions.setPhone(data.phone)
+        actions.setAddress(data.address)
       })
     },[]) 
-
-
-
- const { update} = actions
-
-
-return(
-<>
-<Navbar />
-<div className="formStyle">
-<h1 >Add a new contact </h1>
-
   
+
+  return (
+    <form>
       <legend className="text-center fs-2 fw-bold">Add a new contact</legend>
       <div className="mb-3">
         <label htmlFor="exampleInputFullName" className="form-label">
@@ -85,17 +87,17 @@ return(
           onChange={(e) => actions.setAddress(e.target.value)}
         />
       </div>
+      <div className="d-grid">
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#updateModal-${params.theid}`}>
+          Save
+        </button>
+        <ModalUpdate objContact={{name: store.name, email: store.email, phone: store.phone, address: store.address}} id={params.theid} />
+        <span className="link-primary text-decoration-underline" onClick={(e) => {actions.handleHomeAndReset(e); navigate("/");}}>
+          Or get back to contacts
+        </span>
+      </div>
+    </form>
+  );
+};
 
-<div>
-    <button onClick={()=>update()}>sabe</button>
-</div>
-</div>
-
-</>
-
-
-)
-
-
-}
-export default AddContact;
+export default FormAddContactUpdate;

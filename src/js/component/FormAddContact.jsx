@@ -1,37 +1,21 @@
 import React from "react";
-import { useState } from "react";
-import { useAppContext } from "../store/AppContext.js";
-import { useNavigate, useParams } from "react-router-dom";
-import { GET_ContactList } from "../store/services.js";
-import { Navbar } from "../component/navbar.js";
-const AddContact=()=>{
-const {store , actions} = useAppContext();
-const navigate = useNavigate();
-  
-  const params = useParams();
 
-useEffect(() => {
-    GET_ContactList(params.theid)
-      .then(data => {
-        actions.setValueName(data.full_name)
-        actions.setValueEmail(data.email)
-        actions.setValuePhone(data.phone)
-        actions.setValueAddress(data.address)
-      })
-    },[]) 
+import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router";
+
+import useAppContext from "../store/AppContext.js";
 
 
 
- const { update} = actions
+const FormAddContact = () => {
 
+  const navigate = useNavigate();
 
-return(
-<>
-<Navbar />
-<div className="formStyle">
-<h1 >Add a new contact </h1>
+  const {store, actions} = useAppContext();
 
-  
+  return (
+    <form>
       <legend className="text-center fs-2 fw-bold">Add a new contact</legend>
       <div className="mb-3">
         <label htmlFor="exampleInputFullName" className="form-label">
@@ -41,7 +25,7 @@ return(
           type="text"
           className="form-control"
           id="exampleInputFullName"
-          placeholder="Full name"
+          placeholder="Full Name"
           value={store.name}
           onChange={(e) => actions.setName(e.target.value)}
         />
@@ -85,17 +69,19 @@ return(
           onChange={(e) => actions.setAddress(e.target.value)}
         />
       </div>
+      <div className="d-grid">
+        <button type="submit" className="btn btn-primary" onClick={(e) => {actions.handleClickSave(e, store.name, store.email, store.phone, store.address); navigate("/");}}>
+          Save
+        </button>
+        <span className="link-primary text-decoration-underline" onClick={(e) => {actions.handleHomeAndReset(e); navigate("/");}}>
+          Or get back to contacts
+        </span>
+      </div>
+    </form>
+  );
+};
 
-<div>
-    <button onClick={()=>update()}>sabe</button>
-</div>
-</div>
-
-</>
+export default FormAddContact;
 
 
-)
-
-
-}
-export default AddContact;
+{/* <Link to="/">Or get back to contacts</Link> */}

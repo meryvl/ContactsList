@@ -1,9 +1,18 @@
 import React from "react";
 
-import "../../styles/home.css";
-import Contact from "./Contact";
-export const Home = () => (
-<>
-<Contact/>
-</>
-);
+import Contacto from "../component/Contacto.jsx";
+import Button from "../component/Button.jsx";
+
+
+import rigoImage from "../../img/rigo-baby.jpg";
+
+
+export const Home = () => {
+
+	return (
+		<div className="container mt-3">
+			<Button />
+			<Contacto />
+		</div>
+	);
+}
