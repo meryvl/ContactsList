@@ -4,6 +4,7 @@ import { useAppContext } from "../store/context.js";
 import { Link } from "react-router-dom";
 import TargetaContacto from "../component/TargetaContacto.jsx";
 const Contact =()=>{
+   
     const {store , actions} = useAppContext();
     const {
         listContacts,
@@ -28,12 +29,22 @@ return(
 			</div>
             </div>
 
-<TargetaContacto/>
+            {listContacts.length == 0 ? (
+                <p className="fs-4"> You haven't got contacts </p>
+            ) : (
+    listContacts.map((item, index)=>{
+
+<TargetaContacto listContacts={listContacts} handleDeleteContact={handleDeleteContact} full_name={item.full_name} email= {item.email}
+ adreess= {item.address} phone= {item.phone}/>
+
+}))} 
+
+
+
+
+
+
  
-
-
-
-
 </div>
 </div>
 )
